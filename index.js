@@ -3,5 +3,5 @@ const wordGenerator = require('./src/wordGenerator');
 
 (async () => {
   wordGenerator.configurePlage(false, false, true, true, ["[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]);
-  await bruteForce(3, 8, "zzaa");
+  await bruteForce.start(3, 8, "tesa");
 })();

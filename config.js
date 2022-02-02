@@ -1,4 +1,4 @@
 module.exports = {
-  URL: 'http://localhost:5000/api/auth/login',
-  EMAIL: 'test@gmail.com'
+  URL: 'http://localhost:3000/login',
+  EMAIL: 'tim@gmail.com'
 }

