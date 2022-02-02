@@ -1,7 +1,7 @@
 # BrutForce ♪♪♪♪♪♪♪♪
 This project is a brutForce generator,
 using Pupeteer npm package
-to test the generated word on a login URL.
+to test the generated word on a web form.
 
 ## Installation
 ```
