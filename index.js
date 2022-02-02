@@ -9,13 +9,13 @@ var maxthreads = 1000;
 var stop = false;
 var word = "";
 
-configurePlage(true, false, true);
+configurePlage(false, false, true);
 
 (async () => {
     browser = await puppeteer.launch();
 
     try {
-      const bonCode = await loop(7, 9);
+      const bonCode = await loop(1, 9);
      } catch(e) {
       console.log('Error happend while connecting to the URL: ', e.message)
      }
@@ -24,7 +24,7 @@ configurePlage(true, false, true);
 })();
 
 
-
+// Boucler selon un nombre max de thread, et essayer le mdp sur une URL (call)
 async function loop(min =1, max =20){
 
 	if(stop) return;
@@ -50,6 +50,8 @@ async function loop(min =1, max =20){
 
 }
 
+
+// Configurer la plage de caractères autorisés
 function configurePlage(num = true, upper = true, lower = true){
 
   if(num) {
@@ -70,6 +72,7 @@ function configurePlage(num = true, upper = true, lower = true){
 
 }
 
+// Génerer le prochain mot à partir de la plage de caractères autorisés
 function getNextWord(word){
 
   for(i=word.length - 1; i >= 0; i--) {
@@ -89,9 +92,12 @@ function getNextWord(word){
   return word
 }
 
+// Essayer de se connecter sur une URL a partir d'un mot : word 
 async function tryWord(word){
 
   const page = await browser.newPage();
+
+  // Méthode post direct sur API
   await page.setRequestInterception(true);
 
   page.on('request', interceptedRequest => {
@@ -102,7 +108,9 @@ async function tryWord(word){
     
     interceptedRequest.continue(data);
   });
+  // fin config
 
+  // Je test réellement
   const response = await page.goto('http://localhost:5000/api/auth/login');
   const responseBody = await response.text();
   await page.close();
