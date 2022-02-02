@@ -34,7 +34,7 @@ Parameters (All optional):
 * Boolean **upper**: Activate uppercase chars  // default : true, 
 * Boolean **lower**: Activate lowercase chars // default : true, 
 * Boolean **special**: Activate special chars // default : true
-* Boolean **unauthorized**: List of unauthorized chars // default : []
+* Array[String] **unauthorized**: List of unauthorized chars // default : []
 
 ### Configure the word
 ```
