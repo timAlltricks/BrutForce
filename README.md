@@ -23,6 +23,7 @@ In the Index.js file
 ### Configure authorized chars
 ```
 $ wordGenerator.configurePlage()
+$ wordGenerator.configurePlage(num, upper, lower, special, unauthorized)
 ```
 Parameters:
 * num: Activate numercis chars, 
@@ -34,6 +35,7 @@ Parameters:
 ### Configure the word
 ```
 $ bruteForce()
+$ bruteForce(min, max, startWord)
 ```
 Parameters:
 * min: Minimum word length , 
