@@ -8,23 +8,15 @@ module.exports = {
 
 // Ajouter un intervalle de caractères autorisées
 function addIntervalToPlage(start, end){
-  for(i=start; i <= end; i++) {
+  for(i=start; i <= end; i++) 
     plage.push(String.fromCharCode(i));
-  }
 }
 
 // Configurer la plage de caractères autorisés
 function configurePlage(num = true, upper = true, lower = true, special = true, unauthorized = []){
-
-  if(num) {
-    addIntervalToPlage(48, 57);
-  }
-  if(upper) {
-    addIntervalToPlage(65, 90);
-  }
-  if(lower) {
-    addIntervalToPlage(97, 122);
-  }
+  if(num) addIntervalToPlage(48, 57);
+  if(upper) addIntervalToPlage(65, 90);
+  if(lower) addIntervalToPlage(97, 122);
   if(special) {
     addIntervalToPlage(33, 47);
     addIntervalToPlage(58, 64);
@@ -36,15 +28,13 @@ function configurePlage(num = true, upper = true, lower = true, special = true, 
     var exists = plage.find(element => element.charCodeAt(0) == char.charCodeAt(0));
     if(exists) plage.pop(exists);
   });
-
 }
 
 // Génerer le prochain mot à partir de la plage de caractères autorisés
 function getNextWord(word){
-
   for(i=word.length - 1; i >= 0; i--) {
-
     nextCharIndex = plage.indexOf(word.charAt(i)) + 1;
+
     if(nextCharIndex === plage.length) nextCharIndex = 0;
     word = word.replaceAt(i, plage[nextCharIndex]);
 
@@ -53,9 +43,7 @@ function getNextWord(word){
     }
 
     if(i===0) return word + plage[0]
-
   }
-
   return word
 }
 
