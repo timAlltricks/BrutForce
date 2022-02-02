@@ -22,6 +22,7 @@ You can change the following values :
 ## Advanced configuration
 **In the index.js file**
 ### Configure authorized chars
+The authorized chars are the list of chars that can be used to generate a word
 ```
 - // without params
 $ wordGenerator.configurePlage()
@@ -37,6 +38,7 @@ Parameters (All optional):
 * _Array[String]_ **unauthorized**: List of unauthorized chars // default : []
 
 ### Configure the word
+The word is the String that is used to fill the password input
 ```
 - // without params
 $ bruteForce.start()
