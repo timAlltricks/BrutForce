@@ -1,4 +1,4 @@
-# BrutForce
+# BrutForce ♪♪♪♪♪♪♪♪
 This project is a brutForce generator, 
 using Pupeteer Package
 To test the generated word on a input.
@@ -32,6 +32,6 @@ Parameters:
 ### Configure the word
 Function : bruteForce()
 Parameters:
-* min: Activer les caractères numérique , 
-* max: Activer les caractères en majuscule , 
-* lower: Activer les caractères en minuscule 
+* min: Taille minimum du mot , 
+* max: Taille maximum du mot , 
+* startWord: Mot de départ
