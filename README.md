@@ -35,8 +35,8 @@ Parameters (All optional):
 
 ### Configure the word
 ```
-$ bruteForce()
-$ bruteForce(min, max, startWord)
+$ bruteForce.start()
+$ bruteForce.start(min, max, startWord)
 ```
 Parameters (All optional):
 * min: Minimum word length // default : 1, 
