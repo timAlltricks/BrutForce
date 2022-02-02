@@ -21,7 +21,9 @@ You can change the following values :
 ## Advanced configuration
 In the Index.js file
 ### Configure authorized chars
-Function : wordGenerator.configurePlage()
+```
+$ wordGenerator.configurePlage()
+```
 Parameters:
 * num: Activate numercis chars, 
 * upper: Activate uppercase chars , 
@@ -30,7 +32,9 @@ Parameters:
 * unauthorized: List of unauthorized chars
 
 ### Configure the word
-Function : bruteForce()
+```
+$ bruteForce()
+```
 Parameters:
 * min: Minimum word length , 
 * max: Maximum word length , 
