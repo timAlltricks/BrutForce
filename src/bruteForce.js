@@ -14,7 +14,8 @@ module.exports = async function start(min =1, max =20, startWord =""){
 
   try {
     const bonCode = await loop(max);
-    console.log(`Code trouvé : ${bonCode}`)
+    if(!bonCode) console.log(`Code non trouvé`);
+    else console.log(`Code trouvé : ${bonCode}`);
    } catch(e) {
     console.log('Error happend while connecting to the URL: ', e.message)
    }
@@ -28,16 +29,11 @@ async function loop(max =20){
 
 	while(threads < maxthreads && word.length <= max){
 		word = WordGenerator.getNextWord(word);
-    console.log(word)
 		threads++;
 
-    /*try {
-      var result = await tryWord(word);
-      if ( result ) return word
-      loop();
-    } catch(e) {
-      console.log('Error happened while connecting to the URL: ', e.message)
-    }*/
+    var result = await tryWord(word);
+    console.log(`${word} : ${result}`);
+    if ( result ) return word
 
      threads--;
 	}
