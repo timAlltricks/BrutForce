@@ -23,10 +23,10 @@ You can change the following values :
 **In the index.js file**
 ### Configure authorized chars
 ```
-$ // without params
+- // without params
 $ wordGenerator.configurePlage()
-$
-$ // with params
+-
+- // with params
 $ wordGenerator.configurePlage(num, upper, lower, special, unauthorized)
 ```
 Parameters (All optional):
@@ -38,10 +38,10 @@ Parameters (All optional):
 
 ### Configure the word
 ```
-$ // without params
+- // without params
 $ bruteForce.start()
-$
-$ // with params
+-
+- // with params
 $ bruteForce.start(min, max, startWord)
 ```
 Parameters (All optional):
