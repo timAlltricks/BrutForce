@@ -14,12 +14,13 @@ $ npm start
 ```
 
 ## Basic configuration
+**In the config.js file**
 You can change the following values :
 * URL: the url targeted by the calls
 * EMAIL: the email tested with the differents passwords
 
 ## Advanced configuration
-In the Index.js file
+**In the index.js file**
 ### Configure authorized chars
 ```
 $ wordGenerator.configurePlage()
