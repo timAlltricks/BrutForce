@@ -30,11 +30,11 @@ $ wordGenerator.configurePlage()
 $ wordGenerator.configurePlage(num, upper, lower, special, unauthorized)
 ```
 Parameters (All optional):
-* num: Activate numercis chars // default : true, 
-* upper: Activate uppercase chars  // default : true, 
-* lower: Activate lowercase chars // default : true, 
-* special: Activate special chars // default : true
-* unauthorized: List of unauthorized chars // default : []
+* Boolean **num**: Activate numercis chars // default : true, 
+* Boolean **upper**: Activate uppercase chars  // default : true, 
+* Boolean **lower**: Activate lowercase chars // default : true, 
+* Boolean **special**: Activate special chars // default : true
+* Boolean **unauthorized**: List of unauthorized chars // default : []
 
 ### Configure the word
 ```
@@ -45,6 +45,6 @@ $ bruteForce.start()
 $ bruteForce.start(min, max, startWord)
 ```
 Parameters (All optional):
-* min: Minimum word length // default : 1, 
-* max: Maximum word length // default : 20 , 
-* startWord: Word the bruteforce begins with // default : ""
+* Integer **min**: Minimum word length // default : 1, 
+* Integer **max** : Maximum word length // default : 20 , 
+* String **startWord**: Word the bruteforce begins with // default : ""
