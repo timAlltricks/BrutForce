@@ -8,9 +8,9 @@ const maxthreads = 1000;
 var threads = 0;
 var stop = false;
 
-module.exports = async function start(min =1, max =20, startWord =""){
-  if(startWord === "" && min > 0) word = WordGenerator.plage[0].repeat(min)
+module.exports = async function start(min =1, max =20, startWord =WordGenerator.plage[0].repeat(min)){
   browser = await puppeteer.launch();
+  word = startWord;
 
   try {
     const bonCode = await loop(max);
@@ -30,12 +30,10 @@ async function loop(max =20){
 	while(threads < maxthreads && word.length <= max){
 		word = WordGenerator.getNextWord(word);
 		threads++;
-
     var result = await tryWord(word);
     console.log(`${word} : ${result}`);
     if ( result ) return word
-
-     threads--;
+    threads--;
 	}
   return false;
 }

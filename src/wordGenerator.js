@@ -20,9 +20,8 @@ function configurePlage(num = true, upper = true, lower = true, special = true, 
     addIntervalToPlage(91, 96);
     addIntervalToPlage(123, 126);
   }
-
   unauthorized.forEach(char => {
-    if(plage.includes(char)) plage.pop(char);
+    if(plage.includes(char)) plage.splice(plage.indexOf(char), 1);
   });
 }
 
@@ -31,7 +30,6 @@ function getNextWord(word){
   for(i=word.length - 1; i >= 0; i--) {
     nextCharIndex = ( plage.indexOf(word.charAt(i)) + 1 === plage.length ) ? 0 : plage.indexOf(word.charAt(i)) + 1;
     word = word.replaceAt(i, plage[nextCharIndex]);
-
     if(nextCharIndex!=0) return word;
     if(i===0) return word + plage[0]
   }
